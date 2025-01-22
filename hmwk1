@@ -1,0 +1,221 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace testetse
+{
+    internal class Program
+    {
+        class Cubes
+        {
+            private int cub1;
+            private int cub2;
+            
+            public Cubes(int cub1, int cub2)
+            {
+                this.cub1 = cub1;
+                this.cub2 = cub2;
+            }
+
+            public int GetF()
+            {
+                return cub1;
+            }
+            public int GetF2()
+            {
+                return cub2;
+            }
+        }
+        class Tav
+        {
+            private string tav;
+            private int num;
+
+            public Tav(string tav, int num)
+            {
+                this.tav = tav;
+                this.num = num;
+            }
+
+            public string Gettav()
+            {
+                return tav;
+            }
+            public int Getnum()
+            {
+                return num;
+            }
+        }
+            static void Main(string[] args)
+        {
+        }
+
+        static int tar47(Node<Cubes> node)
+        {
+            int highest = 0;
+            int c1 = 0;
+            int c2 = 0;
+            int c3 = 0;
+            int c4 = 0;
+            int c5 = 0;
+            int c6 = 0;
+
+            while (node != null)
+            {
+                if (node.getValue().GetF() == 1 | node.getValue().GetF2() == 1)
+                {
+                    c1++;
+                }
+
+                if (node.getValue().GetF() == 2 | node.getValue().GetF2() == 2)
+                {
+                    c2++;
+                }
+
+                if (node.getValue().GetF() == 3 | node.getValue().GetF2() == 3)
+                {
+                    c3++;
+                }
+
+                if (node.getValue().GetF() == 4 | node.getValue().GetF2() == 4)
+                {
+                    c4++;
+                }
+
+                if (node.getValue().GetF() == 5 | node.getValue().GetF2() == 5)
+                {
+                    c5++;
+                }
+
+                if (node.getValue().GetF() == 6 | node.getValue().GetF2() == 6)
+                {
+                    c6++;
+                }
+
+                if (highest < c1)
+                {
+                    highest = 1;
+                }
+                if (highest < c2)
+                {
+                    highest = 2;
+                }
+                if (highest < c3)
+                {
+                    highest = 3;
+                }
+                if (highest < c4)
+                {
+                    highest = 4;
+                }
+                if (highest < c5)
+                {
+                    highest = 5;
+                }
+                if (highest < c6)
+                {
+                    highest = 6;
+                }
+            }
+            return highest;
+        }
+
+        static Node<char> tar48(Node<Tav> list)
+        {
+            Node<Tav> node = list;
+            Node<string> ret = new Node<string>("s");
+            while (node != null)
+            {
+                for (int i = 0; i < node.getValue().Getnum(); i++)
+                {
+                    ret.setNext(node.getValue().Gettav());
+                }
+
+            }
+        }
+
+
+
+
+
+        public class Node<T>
+        {
+
+            private T value;
+
+            private Node<T> next;
+
+
+
+            public Node(T value)
+            {
+
+                this.value = value;
+
+                this.next = null;
+
+            }
+
+
+
+            public Node(T value, Node<T> next)
+            {
+
+                this.value = value;
+
+                this.next = next;
+
+            }
+
+
+
+            public T getValue()
+            {
+
+                return value;
+
+            }
+
+
+
+            public void setValue(T value)
+            {
+
+                this.value = value;
+
+            }
+
+
+
+            public Node<T> getNext()
+            {
+
+                return next;
+
+            }
+
+
+
+            public void setNext(Node<T> next)
+            {
+
+                this.next = next;
+
+            }
+
+
+
+            public bool hasNext()
+            {
+
+                return (this.next != null);
+
+            }
+
+
+
+        }
+    }
+}
